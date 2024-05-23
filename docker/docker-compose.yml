@@ -4,7 +4,7 @@ services:
   damap-be:
     # Since DAMAP containers are publicly available on Github packages one can
     # just pull the latest container image.
-    image: ghcr.io/sharedRDM/damap-backend:${DAMAP_BE_VERSION}
+    image: ghcr.io/sharedrdm/damap-backend:${DAMAP_BE_VERSION}
     pull_policy: always
     restart: unless-stopped
 
@@ -71,7 +71,7 @@ services:
   damap-fe:
     # Since DAMAP containers are publicly available on Github packages one can
     # just pull the latest container image.
-    image: ghcr.io/sharedRDM/damap-frontend:${DAMAP_FE_VERSION}
+    image: ghcr.io/sharedrdm/damap-frontend:${DAMAP_FE_VERSION}
     pull_policy: always
     restart: unless-stopped
 
