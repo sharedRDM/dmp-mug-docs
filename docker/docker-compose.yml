@@ -2,16 +2,11 @@ version: '3.3'
 
 services:
   damap-be:
-    # Since DAMAP containers are publicly available on Github packages one can
-    # just pull the latest container image.
     image: ghcr.io/sharedrdm/damap-backend:${DAMAP_BE_VERSION}
     pull_policy: always
     restart: unless-stopped
-
-    # uncomment the following two lines and comment the previous
-    # 'image' to directly build the backend container from this repository.
-    # build:
-    #  context: ../
+    ports:
+      - "8080:8080"
     depends_on:
       - damap-db
       - keycloak
@@ -46,7 +41,6 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-
       KEYCLOAK_DATABASE_HOST: keycloak-db
       KEYCLOAK_DATABASE_NAME: keycloak
       KEYCLOAK_DATABASE_USER: keycloak
@@ -69,17 +63,11 @@ services:
      DB_VENDOR: postgres
 
   damap-fe:
-    # Since DAMAP containers are publicly available on Github packages one can
-    # just pull the latest container image.
     image: ghcr.io/sharedrdm/damap-frontend:${DAMAP_FE_VERSION}
     pull_policy: always
     restart: unless-stopped
-
-    # uncomment the following two lines and comment the previous
-    # 'image' to directly build the frontend container from the repository
-    # assumed to be checked-out beside the 'damap-backend' repository.
-    # build:
-      # context: ../../damap-frontend
+    ports:
+      - "8000:8000"
     depends_on:
       - damap-be
 
@@ -94,30 +82,9 @@ services:
     ports:
       - "8091:80"
 
-  proxy:
-    # Since several components share the same ports and address, this docker
-    # configuration needs a proxy to manage the connections between them,
-    # as well as access from the outside.
-    image: registry.hub.docker.com/library/nginx
-    pull_policy: always
-    restart: unless-stopped
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - "8085:80"
-    depends_on:
-      - damap-fe
-      - damap-be
-
   fits-service:
     image: islandora/fits:main
     pull_policy: always
     restart: unless-stopped
     ports:
       - "8089:8080"
-
-# Uncomment the following block to persist postgres data.
-#    volumes:
-#      - damap-db-data:/var/lib/postgresql/data
-#volumes:
-#  damap-db-data:
