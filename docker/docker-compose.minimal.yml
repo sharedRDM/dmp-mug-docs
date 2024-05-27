@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  damap-be:
+    image: ghcr.io/sharedrdm/damap-backend:${DAMAP_BE_VERSION}
+    pull_policy: always
+    restart: unless-stopped
+    depends_on:
+      - fits-service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/q/health/live"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+    ports:
+      - "8080:8080"
+
+  damap-fe:
+    image: ghcr.io/sharedrdm/damap-frontend:${DAMAP_FE_VERSION}
+    pull_policy: always
+    restart: unless-stopped
+    depends_on:
+      - damap-be
+    ports:
+      - "8000:8000"
+
+  fits-service:
+    image: islandora/fits:main
+    pull_policy: always
+    restart: unless-stopped
+    ports:
+      - "8089:8080"
