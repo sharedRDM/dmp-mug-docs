@@ -17,7 +17,10 @@ services:
       interval: 30s
       timeout: 15s
       retries: 5
-
+    environment:
+      DAMAP_ENV: DEV
+      DAMAP_ORIGINS: http://localhost:8000,http://localhost:8080,http://localhost:8085
+      DAMAP_FITS_URL: http://fits-service:8081/fits
   damap-db:
     image: postgres:16
     pull_policy: always
@@ -87,4 +90,4 @@ services:
     pull_policy: always
     restart: unless-stopped
     ports:
-      - "8089:8080"
+      - "8089:8081"
