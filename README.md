@@ -9,11 +9,11 @@ The DMP Tool MUG is an innovative tool developed in collaboration with the Resea
 For a detailed view of our workflow process involving the collaboration between TU Graz and the Medical University of Graz, please refer to the diagram located in the `arch/your_file.pdf`.
 
 ## Run a demo instance
+This demo instance is configured with a keycloak username `user` & password `user`.
 
 ```bash
 # make sure you have docker & docker-compose installed
-docker-compose -f docker/docker-compose.yml up
+docker-compose -f docker/docker-compose.demo.yml up
 ```
 
-**visit** [http://localhost:8000](http://localhost:8000)  
-**Username**: `user`, **password**: `user`
+**visit** [http://localhost:8000](http://localhost:8000)   

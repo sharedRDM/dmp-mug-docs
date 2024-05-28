@@ -55,7 +55,7 @@ services:
     ports:
       - "8087:8080"
     volumes:
-      - ./sample-damap-realm-export.json:/opt/bitnami/keycloak/data/import/sample-damap-realm-export.json
+      - ./keycloak/sample-damap-realm-export.json:/opt/bitnami/keycloak/data/import/sample-damap-realm-export.json
 
   keycloak-db:
    image: postgres:16

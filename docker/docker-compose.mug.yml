@@ -30,7 +30,7 @@ services:
       DAMAP_DATASOURCE_PASSWORD: ${DAMAP_DATASOURCE_PASSWORD}
       DAMAP_PROJECTS_URL: ${DAMAP_PROJECTS_URL}
       DAMAP_PERSONS_URL: ${DAMAP_PERSONS_URL}
-      DAMAP_FITS_URL: http://fits-service:8081/fits
+      DAMAP_FITS_URL: ${DAMAP_FITS_URL}
 
   # frontend
   damap-fe:

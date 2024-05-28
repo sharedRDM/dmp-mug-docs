@@ -7,7 +7,7 @@ Most of the variables under the `DAMAP` section at the beginning have to be adap
 
 ## Docker Compose Minimal
 
-The `docker-compose.minimal.yml` file depicts an example of the services needed for deployment at MUG. It consists of:
+The `docker-compose.mug.yml` file depicts an example of the services needed for deployment at MUG. It consists of:
 
 - DAMAP back end
 - DAMAP front end
