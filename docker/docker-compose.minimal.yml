@@ -1,6 +1,8 @@
 version: "3.3"
 
 services:
+
+  # backend
   damap-be:
     image: ghcr.io/sharedrdm/damap-backend:${DAMAP_BE_VERSION}
     pull_policy: always
@@ -14,7 +16,23 @@ services:
       retries: 5
     ports:
       - "8080:8080"
+    environment:
+      DAMAP_ENV: ${DAMAP_ENV}
+      DAMAP_ORIGINS: ${DAMAP_ORIGINS}
+      DAMAP_AUTH_BACKEND_URL: ${DAMAP_AUTH_BACKEND_URL}
+      DAMAP_AUTH_BACKEND_CLIENT: ${DAMAP_AUTH_BACKEND_CLIENT}
+      DAMAP_AUTH_FRONTEND_URL: ${DAMAP_AUTH_FRONTEND_URL}
+      DAMAP_AUTH_FRONTEND_CLIENT: ${DAMAP_AUTH_FRONTEND_CLIENT}
+      DAMAP_AUTH_SCOPE: ${DAMAP_AUTH_SCOPE}
+      DAMAP_AUTH_USER: ${DAMAP_AUTH_USER}
+      DAMAP_DATASOURCE_URL: ${DAMAP_DATASOURCE_URL}
+      DAMAP_DATASOURCE_USERNAME: ${DAMAP_DATASOURCE_USERNAME}
+      DAMAP_DATASOURCE_PASSWORD: ${DAMAP_DATASOURCE_PASSWORD}
+      DAMAP_PROJECTS_URL: ${DAMAP_PROJECTS_URL}
+      DAMAP_PERSONS_URL: ${DAMAP_PERSONS_URL}
+      DAMAP_FITS_URL: http://fits-service:8081/fits
 
+  # frontend
   damap-fe:
     image: ghcr.io/sharedrdm/damap-frontend:${DAMAP_FE_VERSION}
     pull_policy: always
@@ -24,9 +42,10 @@ services:
     ports:
       - "8000:8000"
 
+  # fits service
   fits-service:
     image: islandora/fits:main
     pull_policy: always
     restart: unless-stopped
     ports:
-      - "8089:8080"
+      - "8089:8081"
