@@ -4,7 +4,7 @@ services:
 
   # backend
   damap-be:
-    image: ghcr.io/sharedrdm/damap-backend:${DAMAP_BE_VERSION}
+    image: ghcr.io/sharedrdm/damap-backend-mug:${DAMAP_BE_VERSION}
     pull_policy: always
     restart: unless-stopped
     depends_on:
@@ -35,7 +35,7 @@ services:
 
   # frontend
   damap-fe:
-    image: ghcr.io/sharedrdm/damap-frontend:${DAMAP_FE_VERSION}
+    image: ghcr.io/sharedrdm/damap-frontend-mug:${DAMAP_FE_VERSION}
     pull_policy: always
     restart: unless-stopped
     depends_on:
