@@ -13,7 +13,7 @@ This demo instance is configured with a keycloak username `user` & password `use
 
 ```bash
 # make sure you have docker & docker-compose installed
-docker-compose -f docker/docker-compose.demo.yml up
+docker compose -f docker/docker-compose.demo.yml up
 ```
 
 **visit** [http://localhost:8000](http://localhost:8000)   
