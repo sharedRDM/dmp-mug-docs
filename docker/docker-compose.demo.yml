@@ -21,6 +21,7 @@ services:
       DAMAP_ENV: DEV
       DAMAP_ORIGINS: http://localhost:8000,http://localhost:8080,http://localhost:8085
       DAMAP_FITS_URL: http://fits-service:8081/fits
+      DAMAP_GOTENBERG_URL: http://gotenberg:3000
   damap-db:
     image: postgres:16
     pull_policy: always
