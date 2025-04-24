@@ -33,6 +33,7 @@ services:
       DAMAP_FITS_URL: ${DAMAP_FITS_URL}
       DAMAP_GOTENBERG_URL: ${DAMAP_GOTENBERG_URL}
       DAMAP_MUG_API_AUTH_TOKEN: ${DAMAP_MUG_API_AUTH_TOKEN}
+      DAMAP_TITLE: "Med Uni Graz DAMAP Tool"
 
   # frontend
   damap-fe:
