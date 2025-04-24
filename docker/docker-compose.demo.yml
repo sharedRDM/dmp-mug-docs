@@ -20,7 +20,7 @@ services:
     environment:
       DAMAP_ENV: DEV
       DAMAP_ORIGINS: http://localhost:8000,http://localhost:8080,http://localhost:8085
-      DAMAP_FITS_URL: http://fits-service:8081/fits
+      DAMAP_FITS_URL: http://fits-service:8080/fits
       DAMAP_GOTENBERG_URL: http://gotenberg:3000
   damap-db:
     image: postgres:16
@@ -91,7 +91,7 @@ services:
     pull_policy: always
     restart: unless-stopped
     ports:
-      - "8089:8081"
+      - "8089:8080"
 
   # Gotenberg Service for live preview
   gotenberg:
