@@ -2,7 +2,7 @@
 
 ## Workflow Diagram
 
-For a detailed view of our workflow process involving the collaboration between TU Graz and the Medical University of Graz, please refer to the diagram located in the `arch/your_file.pdf`.
+For a detailed view of our workflow process involving the collaboration between TU Graz and the Medical University of Graz, please refer to the diagram located in the `Process-flow-dmp.pdf`.
 
 ## DAMAP Services Overview
 
