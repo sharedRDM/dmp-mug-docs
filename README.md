@@ -8,6 +8,18 @@ The DMP Tool MUG is an innovative tool developed in collaboration with the Resea
 
 For a detailed view of our workflow process involving the collaboration between TU Graz and the Medical University of Graz, please refer to the diagram located in the `arch/your_file.pdf`.
 
+## DAMAP Services Overview
+
+| **Service**       | **Description**                                                                 | **Port**        | **Docker Image**                             | **Connected To**                                               | **Notes**                                                                                  |
+|-------------------|----------------------------------------------------------------------------------|------------------|-----------------------------------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Damap Frontend**| Angular UI served via Nginx                                                      | `8000`           | Custom (Nginx + Angular)                      | Backend (`8080`), FITS (`8080`), Gotenberg (`3000`)             | No HTTPS, static UI files                                                                  |
+| **Damap Backend** | Quarkus-based backend logic                                                      | `8080` (default) | Custom Quarkus image                          | Frontend, PostgreSQL, Keycloak                                 | Supports env vars for config                                                               |
+| **FITS Service**  | Metadata extraction via Islandora FITS                                           | `8080`           | [Islandora FITS](https://github.com/Islandora/islandora_fits) | Frontend                                                        | Third-party tool used for file metadata                                                    |
+| **Gotenberg**     | Document to PDF conversion and preview                                           | `3000`           | [Gotenberg](https://gotenberg.dev/)           | Frontend                                                        | Enables document previews                                                                  |
+| **Keycloak**      | Identity and access management                                                   | *env override*   | Official Keycloak image                       | Backend, Frontend                                               | Used for authentication                                                                    |
+| **PostgreSQL**    | Relational database for DAMAP                                                    | *env override*   | Official PostgreSQL image                     | Backend                                                         | Stores persistent data                                                                     |
+
+
 ## Run a demo instance
 This demo instance is configured with a keycloak username `user` & password `user`.
 
@@ -17,3 +29,5 @@ docker compose -f docker/docker-compose.demo.yml up
 ```
 
 **visit** [http://localhost:8000](http://localhost:8000)   
+
+
