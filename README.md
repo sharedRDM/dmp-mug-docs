@@ -1,7 +1,7 @@
 > **⚠️ This repository is archived.**
 >
 > This project is no longer maintained and is archived for reference purposes only.
-> For the latest version and continued development, please visit the [damap-mug-workflow]([https://github.com/username/new-repo](https://github.com/sharedRDM/damap-mug-workflow).
+> For the latest version and continued development, please visit the [damap-mug-workflow](https://github.com/sharedRDM/damap-mug-workflow).
 >
 > Note: Issues and pull requests on this archived repository will not be monitored.
 
